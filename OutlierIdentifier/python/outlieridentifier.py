@@ -32,13 +32,11 @@
 
 ##=======================================================================================
 ##
-## This script of R functions re-implements this Mathematica package:
+## This script of Python functions re-implements this Mathematica package:
 ##
 ## [1] Anton Antonov, Implementation of one dimensional outlier identifying algorithms in Mathematica,
 ##     Mathematica package OutlierIdentifiers.m, (2013), MathematicaForPrediction project at GitHub,
-##     https://github.com/antononcube/MathematicaForPrediction/blob/master/OutlierIdentifiers.m .
-##
-##
+##     https://github.com/antononcube/MathematicaForPrediction/blob/master/OutlierIdentifiers.m
 ##=======================================================================================
 
 import numpy as np
