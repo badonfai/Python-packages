@@ -94,6 +94,7 @@ def SPLUSQuartileIdentifierParameters(data):
 
     return xL - 1.5*(xU-xL), xU + 1.5*(xU-xL)
 
+
 def OutlierIdentifier(data, identifier):
     """ Outlier identifier
     Find an outlier threshold for a data vector.
@@ -102,7 +103,7 @@ def OutlierIdentifier(data, identifier):
     :param identifier: An outlier identifier function
     :return: A numeric vector of outliers.
     """
-    if any((isinstance(x, (int, float)) for x in data)):
+    if any((not isinstance(x, (int, float)) for x in data)):
         raise Exception('The argument data is expected to be a numeric vector')
     lowerThreshold, upperThreshold = identifier(data)
     return data[(data <= lowerThreshold) | (data >= upperThreshold)]
