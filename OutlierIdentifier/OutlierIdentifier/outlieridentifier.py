@@ -64,6 +64,7 @@ def HampelIdentifierParameters(data):
     md = 1.4826 * np.median(np.abs(data-x0))
     return x0-md, x0+md
 
+
 def QuartileIdentifierParameters(data):
     """ Quartile identifier parameters
     Find an Quartile outlier for a data vector.
