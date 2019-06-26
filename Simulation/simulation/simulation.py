@@ -68,10 +68,10 @@ def random_choices(population, weights=None, cum_weights=None, k=1):
 def quantile_weighted_random(array, quantile_steps=0.1, sample_size=100):
     """
     Using qunatiles to generate from the CDF data samples
-    :param array:
-    :param quantile_steps:
-    :param sample_size:
-    :return:
+    :param array: input 1D array of Numbers
+    :param quantile_steps: the step number for the quantiles
+    :param sample_size: number of samples to generate
+    :return: array of simulated data
     """
     quantile = np.quantile(array, q=np.arange(0, 1+quantile_steps, quantile_steps))
 
