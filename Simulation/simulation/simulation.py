@@ -65,7 +65,7 @@ def random_choices(population, weights=None, cum_weights=None, k=1):
     return random.choices(population, weights=weights, cum_weights=cum_weights, k=k)
 
 
-def quantile_weighted_random(array, quantile_steps=0.1, sample_size=100):
+def quantile_weighted_random(quantile, probs, sample_size=100):
     """
     Using qunatiles to generate from the CDF data samples
     :param array: input 1D array of Numbers
@@ -73,9 +73,12 @@ def quantile_weighted_random(array, quantile_steps=0.1, sample_size=100):
     :param sample_size: number of samples to generate
     :return: array of simulated data
     """
-    quantile = np.quantile(array, q=np.arange(0, 1+quantile_steps, quantile_steps))
+    if len(quantile) < 2:
+        raise Exception("input has less than 2 elements")
 
-    rand_int = np.random.randint(0, len(quantile)-1, size=sample_size)
+    if np.sum(probs) != 1:
+        raise Exception("the probability vector does not add up to 1")
+
+    rand_int = random.choices(range(0, len(quantile)-1), weights=probs, k=sample_size)
 
     return [np.random.uniform(quantile[x], quantile[x+1], 1)[0] for x in rand_int]
-
